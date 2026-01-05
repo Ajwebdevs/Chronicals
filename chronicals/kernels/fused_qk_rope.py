@@ -1,4 +1,3 @@
-%%writefile fused_qk_rope.py
 """
 Fused QK RoPE Kernel - Unsloth-Style 2.3x Speedup
 

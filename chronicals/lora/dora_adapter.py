@@ -1,4 +1,3 @@
-%%writefile dora_adapter.py
 """
 Chronicals DoRA (Weight-Decomposed Low-Rank Adaptation) Implementation
 =======================================================================

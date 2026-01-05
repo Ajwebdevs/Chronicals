@@ -1,4 +1,3 @@
-%%writefile compile_utils.py
 """
 Chronicals torch.compile + LoRA Hotswapping Utilities
 =======================================================

@@ -1,4 +1,3 @@
-%%writefile lora_presets.py
 """
 =============================================================================
 CHRONICALS LORA PRESETS

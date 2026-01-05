@@ -1,4 +1,3 @@
-%%writefile fused_lora_kernels.py
 """
 Chronicals Fused LoRA Kernels - Beat Unsloth Edition
 =====================================================

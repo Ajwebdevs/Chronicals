@@ -1,4 +1,3 @@
-%%writefile fused_adamw.py
 """
 Chronicals Fused AdamW Optimizer - Zero-Sync Edition
 =====================================================

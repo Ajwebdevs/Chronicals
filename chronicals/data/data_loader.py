@@ -1,4 +1,3 @@
-%%writefile data_loader.py
 """
 Chronicals Data Loader - Production-Ready Edition
 ===================================================

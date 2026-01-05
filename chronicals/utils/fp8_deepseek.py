@@ -1,4 +1,3 @@
-%%writefile fp8_deepseek.py
 """
 DeepSeek V3 Style FP8 Training Implementation
 ==============================================

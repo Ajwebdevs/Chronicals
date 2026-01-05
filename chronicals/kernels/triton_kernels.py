@@ -1,4 +1,3 @@
-%%writefile triton_kernels.py
 """
 Chronicals Triton Kernels - SOTA 2024-2025 Edition
 ===================================================

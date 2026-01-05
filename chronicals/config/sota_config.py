@@ -1,4 +1,3 @@
-%%writefile sota_config.py
 """
 Chronicals SOTA Configuration Module
 ======================================

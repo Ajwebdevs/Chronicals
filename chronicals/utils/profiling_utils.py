@@ -1,4 +1,3 @@
-%%writefile profiling_utils.py
 """
 Profiling Utilities for Chronicals Training
 =============================================

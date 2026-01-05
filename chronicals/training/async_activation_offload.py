@@ -1,4 +1,3 @@
-%%writefile async_activation_offload.py
 """
 Async Activation Offloading for Chronicals
 ============================================

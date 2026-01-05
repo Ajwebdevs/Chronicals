@@ -1,4 +1,3 @@
-%%writefile unsloth_max_benchmark.py
 """
 UNSLOTH MAXIMUM PERFORMANCE BENCHMARK
 =====================================

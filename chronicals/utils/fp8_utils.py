@@ -1,4 +1,3 @@
-%%writefile fp8_utils.py
 """
 Chronicals FP8 Utilities
 ========================

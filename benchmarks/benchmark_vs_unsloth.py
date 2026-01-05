@@ -1,4 +1,3 @@
-%%writefile benchmark_vs_unsloth.py
 """
 =============================================================================
 CHRONICALS vs UNSLOTH BENCHMARK SUITE

@@ -1,4 +1,3 @@
-%%writefile COLAB_QUICKSTART_LORA.py
 """
 =============================================================================
 CHRONICALS LORA QUICKSTART FOR GOOGLE COLAB

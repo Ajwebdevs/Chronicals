@@ -1,4 +1,3 @@
-%%writefile fused_rope.py
 """
 Chronicals Enhanced Fused QK RoPE - Beat Unsloth Edition
 =========================================================

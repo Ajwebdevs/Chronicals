@@ -1,4 +1,3 @@
-%%writefile cut_cross_entropy.py
 """
 Cut Cross-Entropy (CCE) Implementation for Chronicals
 

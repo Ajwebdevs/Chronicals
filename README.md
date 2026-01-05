@@ -141,7 +141,7 @@ The GPU spends most of its time **waiting for data**, not computing.
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/Chronicals.git
+git clone https://github.com/Ajwebdevs/Chronicals.git
 cd Chronicals
 
 # Create virtual environment
@@ -890,7 +890,7 @@ If you use Chronicals in your research, please cite:
   author={Nair, Arjun S.},
   journal={arXiv preprint},
   year={2025},
-  note={Available at: https://github.com/yourusername/Chronicals}
+  note={Available at: https://github.com/Ajwebdevs/Chronicals}
 }
 ```
 
@@ -934,7 +934,7 @@ Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTIN
 
 ```bash
 # Clone and install in development mode
-git clone https://github.com/yourusername/Chronicals.git
+git clone https://github.com/Ajwebdevs/Chronicals.git
 cd Chronicals
 pip install -e ".[dev]"
 
@@ -966,7 +966,7 @@ python benchmarks/run_benchmark.py --quick
 </p>
 
 <p align="center">
-  <a href="https://github.com/yourusername/Chronicals/issues">Report Bug</a> •
-  <a href="https://github.com/yourusername/Chronicals/issues">Request Feature</a> •
+  <a href="https://github.com/Ajwebdevs/Chronicals/issues">Report Bug</a> •
+  <a href="https://github.com/Ajwebdevs/Chronicals/issues">Request Feature</a> •
   <a href="https://arxiv.org/abs/xxxx.xxxxx">Read Paper</a>
 </p>

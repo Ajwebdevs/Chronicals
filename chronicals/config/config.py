@@ -1,4 +1,3 @@
-%%writefile config.py
 """
 Chronicals Configuration Module
 ================================

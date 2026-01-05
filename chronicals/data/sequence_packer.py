@@ -1,4 +1,3 @@
-%%writefile sequence_packer.py
 """
 Chronicals Sequence Packer - Production-Ready CUDA Graph Compatible Edition
 =============================================================================

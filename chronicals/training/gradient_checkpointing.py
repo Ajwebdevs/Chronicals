@@ -1,4 +1,3 @@
-%%writefile gradient_checkpointing.py
 """
 Chronicals Gradient Checkpointing
 ==================================

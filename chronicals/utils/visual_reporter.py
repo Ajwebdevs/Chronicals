@@ -1,4 +1,3 @@
-%%writefile visual_reporter.py
 """
 Chronicals Visual Reporter
 ===========================

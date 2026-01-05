@@ -1,4 +1,3 @@
-%%writefile flash_attention_optimizer.py
 """
 FlashAttention-3 Optimizer for 50k+ Tokens/Sec
 ================================================

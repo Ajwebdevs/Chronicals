@@ -1,4 +1,3 @@
-%%writefile COLAB_LORA_TRAINER.py
 """
 =============================================================================
 CHRONICALS COLAB LORA TRAINER - Beat Unsloth!

@@ -1,4 +1,3 @@
-%%writefile cuda_graph_manager.py
 """
 CUDA Graph Manager for Chronicals Training
 ============================================

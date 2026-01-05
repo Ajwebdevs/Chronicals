@@ -1,4 +1,3 @@
-%%writefile run_benchmark.py
 """
 Chronicals Benchmark Comparison
 ================================

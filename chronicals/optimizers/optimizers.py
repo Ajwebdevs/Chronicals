@@ -1,4 +1,3 @@
-%%writefile optimizers.py
 """
 Chronicals Advanced Optimizers
 ===============================

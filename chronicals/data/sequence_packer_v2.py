@@ -1,4 +1,3 @@
-%%writefile sequence_packer_v2.py
 """
 Chronicals Sequence Packer V2 - FlashAttention Varlen Enhanced Edition
 ========================================================================

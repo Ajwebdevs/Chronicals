@@ -1,4 +1,3 @@
-%%writefile gradient_checkpointing_lora.py
 """
 Chronicals LoRA-Aware Gradient Checkpointing
 ==============================================

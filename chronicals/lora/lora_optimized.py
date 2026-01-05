@@ -1,4 +1,3 @@
-%%writefile lora_optimized.py
 """
 Chronicals Optimized LoRA Implementation
 ==========================================

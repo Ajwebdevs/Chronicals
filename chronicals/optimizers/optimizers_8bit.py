@@ -1,4 +1,3 @@
-%%writefile optimizers_8bit.py
 """
 Chronicals 8-bit Quantized Optimizer States
 ============================================

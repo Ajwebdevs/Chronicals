@@ -1,4 +1,3 @@
-%%writefile fair_comparison_custom_loop.py
 """
 100% FAIR COMPARISON: Chronicals vs Unsloth
 ===========================================

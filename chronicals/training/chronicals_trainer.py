@@ -1,4 +1,3 @@
-%%writefile chronicals_trainer.py
 """
 Chronicals Trainer
 ===================

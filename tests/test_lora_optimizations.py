@@ -1,4 +1,3 @@
-%%writefile test_lora_optimizations.py
 """
 =============================================================================
 CHRONICALS LORA OPTIMIZATIONS TEST SUITE
