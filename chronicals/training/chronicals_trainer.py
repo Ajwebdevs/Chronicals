@@ -34,15 +34,15 @@ import math
 import inspect
 from dataclasses import dataclass
 
-from config import ChronicalsConfig, TrainingConfig, HF_WRITE_TOKEN
-from fp8_utils import FP8Handler
-from gradient_checkpointing import apply_gradient_checkpointing
+from chronicals.config.config import ChronicalsConfig, TrainingConfig, HF_WRITE_TOKEN
+from chronicals.utils.fp8_utils import FP8Handler
+from .gradient_checkpointing import apply_gradient_checkpointing
 
 # Import FlashAttention-3 optimizer for SOTA performance (arXiv:2407.08608)
 # Provides: persistent kernels, ping-pong scheduling, warp specialization,
 # FP8 block quantization, varlen sequence packing
 try:
-    from flash_attention_optimizer import (
+    from chronicals.kernels.flash_attention_optimizer import (
         FlashAttentionConfig,
         FlashAttentionPatcher,
         optimize_model_for_speed,
@@ -64,20 +64,20 @@ except ImportError:
 
 # Import DeepSeek V3 style FP8 training
 try:
-    from fp8_deepseek import (
+    from chronicals.utils.fp8_deepseek import (
         convert_model_to_fp8, FP8Linear, FP8Context,
         compute_fp8_memory_savings, DEFAULT_FP8_EXCLUDE_PATTERNS
     )
     FP8_DEEPSEEK_AVAILABLE = True
 except ImportError:
     FP8_DEEPSEEK_AVAILABLE = False
-from sequence_packer import SequencePacker, PackedBatch, DataPrefetcher
-from triton_kernels import fused_cross_entropy, chunked_cross_entropy, ChunkedCrossEntropyLoss
+from chronicals.data.sequence_packer import SequencePacker, PackedBatch, DataPrefetcher
+from chronicals.kernels.triton_kernels import fused_cross_entropy, chunked_cross_entropy, ChunkedCrossEntropyLoss
 
 # Import Apple Cut Cross-Entropy for memory-efficient training
 # CCE computes loss WITHOUT materializing full logits - essential for large vocab models
 try:
-    from cut_cross_entropy import (
+    from chronicals.kernels.cut_cross_entropy import (
         cut_cross_entropy,
         linear_cross_entropy,
         CutCrossEntropyLoss,
@@ -88,11 +88,11 @@ try:
 except ImportError:
     CCE_AVAILABLE = False
 
-from visual_reporter import VisualReporter, TrainingMetrics
+from chronicals.utils.visual_reporter import VisualReporter, TrainingMetrics
 
 # Import optimizers
 try:
-    from optimizers import (
+    from chronicals.optimizers.optimizers import (
         ScheduleFreeAdamW, Muon, HybridMuonAdamW, Adam8bit, AdamAtan2,
         WSDScheduler, OneCycleLR, create_optimizer, create_scheduler
     )
@@ -102,7 +102,7 @@ except ImportError:
 
 # Import FusedAdamW
 try:
-    from fused_adamw import FusedAdamW
+    from chronicals.optimizers.fused_adamw import FusedAdamW
     FUSED_ADAMW_AVAILABLE = True
 except ImportError:
     FUSED_ADAMW_AVAILABLE = False
@@ -162,7 +162,7 @@ import gc
 # Import CUDA Graph Manager for optimized training
 # Reference: https://pytorch.org/blog/accelerating-pytorch-with-cuda-graphs/
 try:
-    from cuda_graph_manager import (
+    from .cuda_graph_manager import (
         CUDAGraphManager,
         CUDAGraphConfig,
         CapturedGraph,
@@ -175,7 +175,7 @@ except ImportError:
 # Import Performance Profiler for bottleneck identification
 # Reference: https://pytorch.org/tutorials/recipes/recipes/profiler_recipe.html
 try:
-    from profiling_utils import (
+    from chronicals.utils.profiling_utils import (
         PerformanceProfiler,
         MFUTracker,
         ThroughputMonitor,

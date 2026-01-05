@@ -130,43 +130,80 @@ The GPU spends most of its time **waiting for data**, not computing.
 
 ## Installation
 
-### Requirements
-
-- Python 3.8+
-- PyTorch 2.1.0+
-- CUDA 11.8+ (for Triton kernels)
-- 16GB+ GPU memory recommended
-
-### Install from Source
+### From PyPI (Recommended)
 
 ```bash
-# Clone the repository
+# Core installation
+pip install chronicals
+
+# With GPU kernels (Triton, Liger)
+pip install chronicals[kernels]
+
+# With training extras (TRL, tokenizers)
+pip install chronicals[training]
+
+# With logging (WandB, TensorBoard)
+pip install chronicals[logging]
+
+# Full installation with all features
+pip install chronicals[all]
+
+# For development
+pip install chronicals[dev]
+```
+
+### From Source
+
+```bash
 git clone https://github.com/Ajwebdevs/Chronicals.git
 cd Chronicals
-
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install torch>=2.1.0 triton>=2.1.0 transformers>=4.36.0
-pip install flash-attn --no-build-isolation
-pip install bitsandbytes accelerate datasets peft
-
-# Install Chronicals
 pip install -e .
+
+# Or with all dependencies
+pip install -e ".[all]"
+```
+
+### Google Colab Setup
+
+For Google Colab, run these cells in order:
+
+```python
+# Cell 1: Install ninja (required for flash-attn)
+!pip uninstall -y ninja && pip install ninja
+
+# Cell 2: Install flash-attn (needs special flags)
+!pip install flash-attn --no-build-isolation
+
+# Cell 3: Install Chronicals with all features
+!pip install chronicals[all]
 ```
 
 ### Verify Installation
 
 ```python
 import chronicals
-print(chronicals.__version__)
+chronicals.print_info()
 
-# Test Triton kernels
-from chronicals.kernels import triton_kernels
-triton_kernels.test_rmsnorm()  # Should print "RMSNorm test passed!"
+# Check available features
+from chronicals import ChronicalsTrainer, ChronicalsConfig
+print("Chronicals installed successfully!")
 ```
+
+### Dependencies
+
+**Core** (installed automatically):
+- PyTorch >= 2.1.0
+- Transformers >= 4.36.0
+- Datasets >= 2.14.0
+- Accelerate >= 0.25.0
+- PEFT >= 0.7.0
+
+**Optional** (install with extras):
+- Triton >= 2.1.0 (GPU kernels)
+- Flash-Attention >= 2.4.0 (fast attention)
+- Liger-Kernel (fused operations)
+- BitsAndBytes >= 0.41.0 (8-bit quantization)
+- WandB >= 0.16.0 (experiment tracking)
 
 ---
 

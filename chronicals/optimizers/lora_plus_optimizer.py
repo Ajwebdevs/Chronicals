@@ -671,3 +671,7 @@ if __name__ == "__main__":
     print("All tests passed!")
     print("\nLoRA+ provides 1.5-2x faster convergence by using")
     print("higher learning rate for B matrices (default: 16x)")
+
+
+# Alias for backwards compatibility and easier imports
+LoRAPlusOptimizer = LoRAPlusAdamW

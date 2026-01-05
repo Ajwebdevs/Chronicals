@@ -38,10 +38,10 @@ import threading
 from queue import Queue
 import warnings
 
-from config import HF_READ_TOKEN, DATASET_REGISTRY
+from chronicals.config.config import HF_READ_TOKEN, DATASET_REGISTRY
 
 # Import sequence packer components
-from sequence_packer import (
+from .sequence_packer import (
     FixedShapeSequencePacker,
     PackedBatch,
     PackedDataset,

@@ -42,7 +42,7 @@ from typing import Optional, Tuple
 # Reference: https://arxiv.org/abs/2411.09009 (ICLR 2025 Oral)
 # ============================================================================
 try:
-    from cut_cross_entropy import (
+    from .cut_cross_entropy import (
         cut_cross_entropy,
         linear_cross_entropy,
         CutCrossEntropyLoss,

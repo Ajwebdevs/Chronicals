@@ -29,7 +29,7 @@ import math
 
 # Import async offload module if available
 try:
-    from async_activation_offload import (
+    from .async_activation_offload import (
         ActivationOffloadManager,
         OffloadActivations,
         OffloadConfig,
