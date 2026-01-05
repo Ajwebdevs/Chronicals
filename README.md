@@ -3,7 +3,7 @@
 ## A High-Performance Framework for LLM Fine-Tuning with 3.51x Speedup over Unsloth
 
 <p align="center">
-  <img src="paper/figures/Figure_1_throughput_comparison.png" alt="Throughput Comparison" width="800"/>
+  <img src="https://raw.githubusercontent.com/Ajwebdevs/Chronicals/main/paper/figures/Figure_1_throughput_comparison.png" alt="Throughput Comparison" width="800"/>
 </p>
 
 <p align="center">
@@ -46,7 +46,7 @@ Fine-tuning a 7-billion parameter language model requires **84GB of memory**: 14
 4. **Sequence packing** that recovers 60-75% of compute wasted on padding
 
 <p align="center">
-  <img src="paper/figures/Figure_5_ablation_study.png" alt="Ablation Study" width="700"/>
+  <img src="https://raw.githubusercontent.com/Ajwebdevs/Chronicals/main/paper/figures/Figure_5_ablation_study.png" alt="Ablation Study" width="700"/>
 </p>
 
 ---
@@ -71,7 +71,7 @@ Fine-tuning a 7-billion parameter language model requires **84GB of memory**: 14
 | **Convergence Speed** | 1.0x | 0.5x | **2x** (with LoRA+) |
 
 <p align="center">
-  <img src="paper/figures/Figure_3_speedup_chart.png" alt="Speedup Chart" width="700"/>
+  <img src="https://raw.githubusercontent.com/Ajwebdevs/Chronicals/main/paper/figures/Figure_3_speedup_chart.png" alt="Speedup Chart" width="700"/>
 </p>
 
 ### Ablation Study Results
@@ -89,7 +89,7 @@ Each optimization contributes multiplicatively to the final speedup:
 *Note: Final measured speedup is 3.51x due to interaction effects between components.*
 
 <p align="center">
-  <img src="paper/figures/Figure_16_optimization_pie.png" alt="Optimization Breakdown" width="500"/>
+  <img src="https://raw.githubusercontent.com/Ajwebdevs/Chronicals/main/paper/figures/Figure_16_optimization_pie.png" alt="Optimization Breakdown" width="500"/>
 </p>
 
 ---
@@ -123,7 +123,7 @@ Modern GPUs achieve peak FLOPS only when computation exceeds memory access. The 
 The GPU spends most of its time **waiting for data**, not computing.
 
 <p align="center">
-  <img src="paper/figures/Figure_10_radar_chart.png" alt="Performance Radar" width="600"/>
+  <img src="https://raw.githubusercontent.com/Ajwebdevs/Chronicals/main/paper/figures/Figure_10_radar_chart.png" alt="Performance Radar" width="600"/>
 </p>
 
 ---
@@ -391,7 +391,7 @@ loss = log_sum_exp - target_logit
 $$\text{Reduction Factor} = \frac{V}{C} = \frac{151936}{4096} = 37\times$$
 
 <p align="center">
-  <img src="paper/figures/Figure_2_memory_efficiency.png" alt="Memory Efficiency" width="600"/>
+  <img src="https://raw.githubusercontent.com/Ajwebdevs/Chronicals/main/paper/figures/Figure_2_memory_efficiency.png" alt="Memory Efficiency" width="600"/>
 </p>
 
 #### Usage
@@ -530,7 +530,7 @@ def qk_rope_forward_kernel(
 **Performance**: 2.3x speedup, 50% memory bandwidth reduction.
 
 <p align="center">
-  <img src="paper/figures/Figure_7_lora_speedup_breakdown.png" alt="Speedup Breakdown" width="600"/>
+  <img src="https://raw.githubusercontent.com/Ajwebdevs/Chronicals/main/paper/figures/Figure_7_lora_speedup_breakdown.png" alt="Speedup Breakdown" width="600"/>
 </p>
 
 ---
@@ -622,7 +622,7 @@ $$\mathcal{L}(W_T) - \mathcal{L}(W^*) \leq \frac{C}{\sqrt{T}} \cdot \frac{1}{\sq
 With $\lambda = 16$: up to $\sqrt{16} = 4\times$ faster convergence.
 
 <p align="center">
-  <img src="paper/figures/Figure_15_lora_plus_convergence.png" alt="LoRA+ Convergence" width="600"/>
+  <img src="https://raw.githubusercontent.com/Ajwebdevs/Chronicals/main/paper/figures/Figure_15_lora_plus_convergence.png" alt="LoRA+ Convergence" width="600"/>
 </p>
 
 ---
@@ -685,7 +685,7 @@ attention_mask = packer.create_attention_mask(
 ```
 
 <p align="center">
-  <img src="paper/figures/Figure_13_packing_impact.png" alt="Packing Impact" width="600"/>
+  <img src="https://raw.githubusercontent.com/Ajwebdevs/Chronicals/main/paper/figures/Figure_13_packing_impact.png" alt="Packing Impact" width="600"/>
 </p>
 
 ---
@@ -713,7 +713,7 @@ python benchmarks/benchmark_vs_unsloth.py \
 ### Benchmark Results
 
 <p align="center">
-  <img src="paper/figures/Figure_6_final_comparison.png" alt="Final Comparison" width="700"/>
+  <img src="https://raw.githubusercontent.com/Ajwebdevs/Chronicals/main/paper/figures/Figure_6_final_comparison.png" alt="Final Comparison" width="700"/>
 </p>
 
 #### Full Fine-Tuning (Qwen2.5-0.5B, A100-40GB)
@@ -733,7 +733,7 @@ python benchmarks/benchmark_vs_unsloth.py \
 | PEFT | 3,420 | 10.2 | Standard LoRA |
 
 <p align="center">
-  <img src="paper/figures/Figure_9_memory_throughput_scatter.png" alt="Memory vs Throughput" width="600"/>
+  <img src="https://raw.githubusercontent.com/Ajwebdevs/Chronicals/main/paper/figures/Figure_9_memory_throughput_scatter.png" alt="Memory vs Throughput" width="600"/>
 </p>
 
 ### Critical Finding: Unsloth Benchmarking Bug
@@ -761,7 +761,7 @@ for step, batch in enumerate(dataloader):
 When we ensured proper gradient flow, Unsloth's throughput dropped to 11,736 tokens/second.
 
 <p align="center">
-  <img src="paper/figures/Figure_11_grad_norm_issue.png" alt="Gradient Norm Issue" width="600"/>
+  <img src="https://raw.githubusercontent.com/Ajwebdevs/Chronicals/main/paper/figures/Figure_11_grad_norm_issue.png" alt="Gradient Norm Issue" width="600"/>
 </p>
 
 ---
@@ -958,7 +958,7 @@ python benchmarks/run_benchmark.py --quick
 ---
 
 <p align="center">
-  <img src="paper/figures/Figure_23_comprehensive_summary.png" alt="Summary" width="700"/>
+  <img src="https://raw.githubusercontent.com/Ajwebdevs/Chronicals/main/paper/figures/Figure_23_comprehensive_summary.png" alt="Summary" width="700"/>
 </p>
 
 <p align="center">
