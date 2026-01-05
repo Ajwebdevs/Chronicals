@@ -1,0 +1,46 @@
+# Chronicals - Google Colab Installation
+# Run these commands in order in Colab cells:
+#
+# Cell 1: Install ninja first (required for flash-attn)
+# !pip uninstall -y ninja && pip install ninja
+#
+# Cell 2: Install flash-attn (needs --no-build-isolation)
+# !pip install flash-attn --no-build-isolation
+#
+# Cell 3: Install remaining dependencies
+# !pip install -r requirements-colab.txt
+
+# Core
+torch>=2.1.0
+torchvision
+torchaudio
+transformers>=4.36.0
+datasets>=2.14.0
+accelerate>=0.25.0
+peft>=0.7.0
+trl
+safetensors>=0.4.0
+huggingface_hub>=0.19.0
+
+# GPU Kernels
+triton>=2.1.0
+liger-kernel
+cut-cross-entropy
+xformers
+einops
+
+# Quantization
+bitsandbytes>=0.41.0
+
+# Tokenizers
+sentencepiece
+protobuf
+tiktoken
+
+# Utils
+numpy>=1.24.0
+tqdm>=4.65.0
+packaging
+matplotlib>=3.7.0
+pandas
+wandb

@@ -1,0 +1,13 @@
+include LICENSE
+include README.md
+include requirements.txt
+include pyproject.toml
+recursive-include chronicals *.py
+recursive-include chronicals py.typed
+recursive-exclude tests *
+recursive-exclude benchmarks *
+recursive-exclude examples *
+recursive-exclude paper *
+global-exclude __pycache__
+global-exclude *.py[cod]
+global-exclude .DS_Store

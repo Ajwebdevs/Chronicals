@@ -1,0 +1,63 @@
+# Chronicals - Full Dependencies
+# For Google Colab / GPU Training
+# Install with: pip install -r requirements.txt
+
+# ============================================
+# Core Deep Learning
+# ============================================
+torch>=2.1.0
+torchvision
+torchaudio
+
+# ============================================
+# Transformers Ecosystem
+# ============================================
+transformers>=4.36.0
+datasets>=2.14.0
+accelerate>=0.25.0
+peft>=0.7.0
+trl
+safetensors>=0.4.0
+huggingface_hub>=0.19.0
+
+# ============================================
+# GPU Kernels & Optimization
+# ============================================
+triton>=2.1.0
+flash-attn>=2.4.0
+liger-kernel
+cut-cross-entropy
+xformers
+einops
+ninja
+
+# ============================================
+# Quantization
+# ============================================
+bitsandbytes>=0.41.0
+
+# ============================================
+# Tokenizers
+# ============================================
+sentencepiece
+protobuf
+tiktoken
+
+# ============================================
+# Utilities
+# ============================================
+numpy>=1.24.0
+tqdm>=4.65.0
+packaging
+
+# ============================================
+# Visualization & Logging
+# ============================================
+matplotlib>=3.7.0
+pandas
+wandb
+
+# ============================================
+# Profiling (Optional)
+# ============================================
+py-spy

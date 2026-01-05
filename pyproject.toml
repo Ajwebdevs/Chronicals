@@ -1,0 +1,170 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chronicals"
+version = "0.1.0"
+description = "High-Performance LLM Fine-Tuning Framework - 3.51x faster than Unsloth"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Arjun S. Nair", email = "5minutepodcastforyou@gmail.com"}
+]
+maintainers = [
+    {name = "Arjun S. Nair", email = "5minutepodcastforyou@gmail.com"}
+]
+keywords = [
+    "llm",
+    "fine-tuning",
+    "deep-learning",
+    "transformers",
+    "triton",
+    "lora",
+    "flash-attention",
+    "pytorch",
+    "gpu",
+    "optimization",
+    "machine-learning",
+    "nlp"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "torch>=2.1.0",
+    "transformers>=4.36.0",
+    "datasets>=2.14.0",
+    "accelerate>=0.25.0",
+    "peft>=0.7.0",
+    "tqdm>=4.65.0",
+    "numpy>=1.24.0",
+    "safetensors>=0.4.0",
+]
+
+[project.optional-dependencies]
+triton = [
+    "triton>=2.1.0",
+]
+flash-attn = [
+    "flash-attn>=2.4.0",
+    "ninja",
+]
+kernels = [
+    "triton>=2.1.0",
+    "liger-kernel",
+    "cut-cross-entropy",
+    "xformers",
+    "einops",
+]
+8bit = [
+    "bitsandbytes>=0.41.0",
+]
+training = [
+    "trl",
+    "huggingface_hub>=0.19.0",
+    "sentencepiece",
+    "protobuf",
+    "tiktoken",
+]
+logging = [
+    "wandb>=0.16.0",
+    "tensorboard>=2.15.0",
+    "matplotlib>=3.7.0",
+    "pandas",
+]
+profiling = [
+    "py-spy",
+]
+all = [
+    "triton>=2.1.0",
+    "flash-attn>=2.4.0",
+    "ninja",
+    "liger-kernel",
+    "cut-cross-entropy",
+    "xformers",
+    "einops",
+    "bitsandbytes>=0.41.0",
+    "trl",
+    "huggingface_hub>=0.19.0",
+    "sentencepiece",
+    "protobuf",
+    "tiktoken",
+    "wandb>=0.16.0",
+    "tensorboard>=2.15.0",
+    "matplotlib>=3.7.0",
+    "pandas",
+]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "flake8>=6.1.0",
+    "mypy>=1.7.0",
+    "pre-commit>=3.6.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Ajwebdevs/Chronicals"
+Documentation = "https://github.com/Ajwebdevs/Chronicals#readme"
+Repository = "https://github.com/Ajwebdevs/Chronicals.git"
+Issues = "https://github.com/Ajwebdevs/Chronicals/issues"
+Changelog = "https://github.com/Ajwebdevs/Chronicals/releases"
+
+[project.scripts]
+chronicals-bench = "chronicals.benchmarks:main"
+
+[tool.setuptools]
+packages = ["chronicals", "chronicals.kernels", "chronicals.optimizers", "chronicals.lora", "chronicals.data", "chronicals.training", "chronicals.config", "chronicals.utils"]
+
+[tool.setuptools.package-data]
+chronicals = ["py.typed"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+known_first_party = ["chronicals"]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
