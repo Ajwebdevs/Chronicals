@@ -1,0 +1,12 @@
+Chronicals
+Copyright 2025 Arjun S. Nair
+
+This product includes software developed by Arjun S. Nair.
+
+If you use this software in your research, please cite:
+
+  Nair, A. S. (2026). Chronicals: A High-Performance Framework for LLM
+  Fine-Tuning with 3.51x Speedup over Unsloth. arXiv preprint.
+
+GitHub: https://github.com/Ajwebdevs/Chronicals
+PyPI: https://pypi.org/project/chronicals/
