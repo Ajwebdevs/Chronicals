@@ -159,6 +159,86 @@ except ImportError:
 # GC management for reduced latency spikes
 import gc
 
+
+def print_chronicals_banner(
+    num_gpus: int = 1,
+    num_examples: int = 0,
+    num_epochs: int = 1,
+    total_steps: int = 0,
+    batch_size: int = 1,
+    trainable_params: int = 0,
+    model_name: str = "",
+):
+    """Print the Chronicals ASCII lion banner with training info."""
+
+    # Lion ASCII art
+    lion = r'''
+              ;,_            ,
+                  _uP~"b          d"u,
+                 dP'   "b       ,d"  "o
+                d"    , `b     d"'    "b
+               l] [    " `l,  d"       lb
+               Ol ?     "  "b`"=uoqo,_  "l
+             ,dBb "b        "b,    `"~~TObup,_
+           ,d" (db.`"         ""     "tbc,_ `~"Yuu,_
+         .d" l`T'  '=                      ~     `""Yu,
+       ,dO` gP,                           `u,   b,_  "b7
+      d?' ,d" l,                           `"b,_ `~b  "1
+    ,8i' dl   `l                 ,ggQOV",dbgq,._"  `l  lb
+   .df' (O,    "             ,ggQY"~  , @@@@@d"bd~  `b "1
+  .df'   `"           -=@QgpOY""     (b  @@@@P db    `Lp"b,
+ .d(                  _               "ko "=d_,Q`  ,_  "  "b,
+ Ql         .         `"qo,._          "tQo,_`""bo ;tb,    `"b,
+(qQ         |L           ~"QQQgggc,_.,dObc,opooO  `"~~";.   __,7,
+`qp         t\io,_           `~"TOOggQV""""        _,dg,_ =PIQHib.
+ `qp        `Q["tQQQo,_                          ,pl{QOP"'   7AFR`
+   `         `tb  '""tQQQg,_             p" "b   `       .;-.`Vl'
+              "Yb      `"tQOOo,__    _,edb    ` .__   /`/'|  |b;=;.__
+                            `"tQQQOOOOP""        `"\QV;qQObob"`-._`\_~~-._
+                                 """"    ._        /   | |oP"\_   ~\ ~\_  ~\
+                                         `~"\ic,qggddOOP"|  |  ~\   `\  ~-._
+                                           ,qP`"""|"   | `\ `;   `\   `\
+                                _        _,p"     |    |   `\`;    |    |
+                                 "boo,._dP"       `\_  `\    `\|   `\   ;
+                                  `"7tY~'            `\  `\    `|_   |
+'''
+
+    # Chronicals text banner
+    chronicals_text = r'''
+         88                                             88                        88
+         88                                             ""                        88
+         88                                                                       88
+ ,adPPYb,88 ,dPPYba,  8b,dPPYba,  ,adPPYba,  8b,dPPYba,  88  ,adPPYba, ,adPPYYba,  88  ,adPPYba,
+d8"    `Y88 P'    "8a 88P'   "Y8 a8"     "8a 88P'   `"8a 88 a8"     "" ""     `Y8  88  I8[    ""
+88       88        88 88         8b       d8 88       88 88 8b         ,adPPPPP88  88   `"Y8ba,
+"8a,   ,d88        88 88         "8a,   ,a8" 88       88 88 "8a,   ,aa 88,    ,88  88  aa    ]8I
+ `"8bbdP"88        88 88          `"YbbdP"'  88       88 88  `"Ybbd8"' `"8bbdP"Y8  88  `"YbbdP"'
+'''
+
+    # Format trainable params
+    if trainable_params >= 1_000_000_000:
+        params_str = f"{trainable_params / 1_000_000_000:.2f}B"
+    elif trainable_params >= 1_000_000:
+        params_str = f"{trainable_params / 1_000_000:.2f}M"
+    elif trainable_params >= 1_000:
+        params_str = f"{trainable_params / 1_000:.2f}K"
+    else:
+        params_str = str(trainable_params)
+
+    # Print the banner
+    print("\n" + "=" * 95)
+    print(chronicals_text)
+    print("=" * 95)
+    print(f"  Chronicals - 3.51x faster LLM fine-tuning | GPUs = {num_gpus}")
+    print(f"  Examples = {num_examples:,} | Epochs = {num_epochs} | Steps = {total_steps:,} | Batch = {batch_size}")
+    if trainable_params > 0:
+        print(f"  Trainable params = {params_str}")
+    if model_name:
+        print(f"  Model = {model_name}")
+    print("=" * 95)
+    print(lion)
+    print("=" * 95 + "\n")
+
 # Import CUDA Graph Manager for optimized training
 # Reference: https://pytorch.org/blog/accelerating-pytorch-with-cuda-graphs/
 try:
@@ -604,6 +684,22 @@ class ChronicalsTrainer:
         os.makedirs(self.args.output_dir, exist_ok=True)
 
         print("=" * 60 + "\n")
+
+        # Print the Chronicals banner with training info
+        num_gpus = torch.cuda.device_count() if torch.cuda.is_available() else 0
+        num_examples = len(self.train_dataloader.dataset) if hasattr(self.train_dataloader, 'dataset') else len(self.train_dataloader)
+        trainable_params = sum(p.numel() for p in self.model.parameters() if p.requires_grad)
+        model_name = getattr(self.model.config, '_name_or_path', '') if hasattr(self.model, 'config') else ''
+
+        print_chronicals_banner(
+            num_gpus=num_gpus,
+            num_examples=num_examples,
+            num_epochs=self.args.num_train_epochs,
+            total_steps=self.state.total_steps,
+            batch_size=self.args.per_device_train_batch_size,
+            trainable_params=trainable_params,
+            model_name=model_name,
+        )
 
     def _setup_liger_kernel(self):
         """

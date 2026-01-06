@@ -19,7 +19,7 @@ Quick Start:
 For more information, visit: https://github.com/Ajwebdevs/Chronicals
 """
 
-__version__ = "0.1.3"
+__version__ = "0.1.4"
 __author__ = "Arjun S. Nair"
 __email__ = "5minutepodcastforyou@gmail.com"
 __license__ = "Apache-2.0"
